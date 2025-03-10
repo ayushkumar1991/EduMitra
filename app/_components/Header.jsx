@@ -1,6 +1,5 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
 import { SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import Image from "next/image";
 import React from "react";
@@ -20,9 +19,7 @@ function Header() {
             <div>
                 <SignedOut>
                     <SignInButton mode="modal">
-                        <Button className="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700">
-                            Get Started
-                        </Button>
+                    
                     </SignInButton>
                 </SignedOut>
 

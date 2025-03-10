@@ -1,7 +1,7 @@
 "use client"
 import React from 'react'
 import { useUser } from '@clerk/nextjs'
-import { Button } from '@/components/ui/button';
+import { Button } from "../../../components/ui/button";
 import Link from 'next/link';
 
 function AddCourse() {
@@ -20,4 +20,4 @@ function AddCourse() {
   )
 }
 
-export default AddCourse
+export default AddCourse;

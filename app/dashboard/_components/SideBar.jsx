@@ -17,42 +17,40 @@ function SideBar() {
             name: "Home",
             icon: <FaHome />,
             path: "/dashboard"
-
         },
         {
             id: 2,
             name: "Explore",
             icon: <HiSquare3Stack3D />,
             path: "/dashboard/explore"
-
         },
         {
             id: 3,
             name: "Upgrade",
             icon: <IoShieldCheckmark />,
             path: "/dashboard/upgrade"
-
         },
         {
             id: 4,
             name: "Logout",
             icon: <IoIosLogOut />,
             path: "/dashboard/logout"
-
-        }]
+        }
+    ];
 
     const path = usePathname();
+
     return (
         <div className='fixed h-full md:w-64 p-5 shadow-md'>
-            <Image src={'/Edumitra.png'} width={90} height={90} />
+            <Image src={'/Edumitra.png'} width={90} height={90} alt="EduMitra Logo" />
             <hr className='my-5' />
 
             <ul>
-                {Menu.map((item, index) => (
-                    <Link href={item.path}>
-                        <div key={index} className={`flex items-center gap-2 space-x-2 my-2 p-3 
-                    cursor-pointer hover:bg-gray-200 hover:text-black rounded-lg
-                    ${item.path == path ? 'bg-gray-200 text-black' : 'text-gray-500'}`}>
+                {Menu.map((item) => (
+                    <Link key={item.id} href={item.path}> {/* ✅ Added key prop inside Link */}
+                        <div className={`flex items-center gap-2 space-x-2 my-2 p-3 
+                            cursor-pointer hover:bg-gray-200 hover:text-black rounded-lg
+                            ${item.path === path ? 'bg-gray-200 text-black' : 'text-gray-500'}`}>
                             <div className='text-2xl'>{item.icon}</div>
                             <h2>{item.name}</h2>
                         </div>
@@ -62,11 +60,11 @@ function SideBar() {
 
             <div className='absolute bottom-10 w-[90%]'>
                 <Progress value={33} />
-                <h2 className='text-sm my-2'> 3 Out o 5 Course Created</h2>
-                <h2 className='text-xs text-gray-500'> Upgrade your Plan for unlimited course creation</h2>
+                <h2 className='text-sm my-2'> 3 Out of 5 Courses Created</h2>
+                <h2 className='text-xs text-gray-500'>Upgrade your Plan for unlimited course creation</h2>
             </div>
         </div>
     )
 }
 
-export default SideBar
+export default SideBar;
